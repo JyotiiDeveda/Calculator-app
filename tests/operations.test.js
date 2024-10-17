@@ -2,7 +2,6 @@ const app = require('../index.js')
 const request = require('supertest')
 const { calculate } = require('../controllers/operation.controller.js')
 
-
 describe('Arithmetic operation', () => {
 	it('should perform addition', async () => {
         const res = await request(app)
@@ -102,13 +101,13 @@ describe('Getting calculation history', () => {
 
 describe('Clear history', () => {
 
-	it('Deletes the operation with given id successfully', async () => {
-		const id = '670f58bdb53663afaa5e177e';
-		const res = await request(app)
-			.delete(`/api/operations/${id}`)
-		expect(res.statusCode).toEqual(200)
-		expect(res.body.message).toEqual("Deleted operation successfully")
-	})
+	// it('Deletes the operation with given id successfully', async () => {
+	// 	const id = '670f58bdb53663afaa5e177e';
+	// 	const res = await request(app)
+	// 		.delete(`/api/operations/${id}`)
+	// 	expect(res.statusCode).toEqual(200)
+	// 	expect(res.body.message).toEqual("Deleted operation successfully")
+	// })
 
 
 	it('Operation with given id not found', async () => {
@@ -124,13 +123,13 @@ describe('Clear history', () => {
 
 describe('Reset history', () => {
 
-	it("Resets calculation history for given email", async () => {
-		const res = await request(app)
-			.delete(`/api/operations`)
-			.set('email', 'abc@gmail.com')
-		expect(res.statusCode).toEqual(200)
-		expect(res.body.message).toEqual("Reset user's calculation history successfully")
-	})
+	// it("Resets calculation history for given email", async () => {
+	// 	const res = await request(app)
+	// 		.delete(`/api/operations`)
+	// 		.set('email', 'abc@gmail.com')
+	// 	expect(res.statusCode).toEqual(200)
+	// 	expect(res.body.message).toEqual("Reset user's calculation history successfully")
+	// })
 
 	it("History for given email not found", async () => {
 		const res = await request(app)

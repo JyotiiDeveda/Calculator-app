@@ -1,33 +1,33 @@
 const mongoose = require('mongoose');
 
 const operationSchema = new mongoose.Schema({
-	email:{
+	email: {
 		type: String,
-		required: true
+		required: true,
 	},
 	value1: {
 		type: Number,
-		required: true
+		required: true,
 	},
 	value2: {
 		type: Number,
-		required: true
-	}, 
+		required: true,
+	},
 	operator: {
 		type: String,
-		required: true
+		required: true,
 	},
 	result: {
 		type: Number,
 	},
 	isDeleted: {
 		type: Boolean,
-		default: false
+		default: false,
 	},
 	createdAt: {
 		type: Date,
-		default: Date.now()
-	}
-})
+		default: Date.now(),
+	},
+});
 
 module.exports = mongoose.model('Operation', operationSchema);
